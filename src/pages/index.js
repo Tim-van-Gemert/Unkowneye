@@ -3,5 +3,5 @@ import axios from "axios"
 
 
 export default function Home() {
-    return <FetchPlayer/>
+    // return <FetchPlayer/>
 }
