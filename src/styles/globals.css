@@ -1,13 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
 
 
 @font-face {
-  font-family: NIKEA;
-  src: url(../../public/NIKEA.otf);
+  font-family: Sen;
+  src: url(../../fonts/FamiljenGrotesk-VariableFont_wght.ttf);
 }
-
 
 
 body {
