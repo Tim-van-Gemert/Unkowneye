@@ -3,32 +3,11 @@ import { useEffect, useState } from "react"
 import NodeCache from 'node-cache';
 
 export default function useFetchAllPlayers(players) {
-  const mysql = require('mysql');
+  // const mysql = require('mysql');
   const token = process.env.NEXT_PUBLIC_PUBGAPI;
   const [playersStats, setPlayersStats] = useState([]);
   const [initialLoad, setInitialLoad] = useState(false);
   const cache = new NodeCache({ stdTTL: 60, checkperiod: 120 }); // Create cache instance
-
-
-  const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'pubg',
-  });
-  
-  // Establish the database connection
-  connection.connect((error) => {
-    if (error) {
-      console.error('Error connecting to the database:', error);
-    } else {
-      console.log('Connected to the database');
-    }
-  });
-  
-  // Assign the connection to the `database` variable
-  const database = connection;
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +36,7 @@ export default function useFetchAllPlayers(players) {
       
             // Store data in the SQL database
             const sql = "INSERT INTO pubg_data (player_id, data) VALUES (?, ?)";
-            await database.query(sql, [player[0], JSON.stringify(playerData)]);
+            // await database.query(sql, [player[0], JSON.stringify(playerData)]);
           } catch (error) {
             console.log(error);
           }
@@ -119,7 +98,7 @@ export function AddNewPlayer() {
 
   useEffect(() => {
     const fetchData = async () => {
-          const url = `https://api.pubg.com/shards/steam/players?filter[playerNames]=ghostdragon2005`;
+          const url = `https://api.pubg.com/shards/steam/players?filter[playerNames]=Ghostdragon2005`;
           let newPlayerData;
 
             try {
