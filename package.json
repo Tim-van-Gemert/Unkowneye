@@ -15,6 +15,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "lru-cache": "^9.1.1",
+    "mysql": "^2.18.1",
     "next": "13.4.4",
     "node-cache": "^5.1.2",
     "postcss": "8.4.24",

@@ -3,11 +3,32 @@ import { useEffect, useState } from "react"
 import NodeCache from 'node-cache';
 
 export default function useFetchAllPlayers(players) {
+  const mysql = require('mysql');
   const token = process.env.NEXT_PUBLIC_PUBGAPI;
   const [playersStats, setPlayersStats] = useState([]);
   const [initialLoad, setInitialLoad] = useState(false);
-
   const cache = new NodeCache({ stdTTL: 60, checkperiod: 120 }); // Create cache instance
+
+
+  const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'pubg',
+  });
+  
+  // Establish the database connection
+  connection.connect((error) => {
+    if (error) {
+      console.error('Error connecting to the database:', error);
+    } else {
+      console.log('Connected to the database');
+    }
+  });
+  
+  // Assign the connection to the `database` variable
+  const database = connection;
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +54,10 @@ export default function useFetchAllPlayers(players) {
             });
             playerData = response.data;
             cache.set(player[0], playerData); // Store the response in the cache
+      
+            // Store data in the SQL database
+            const sql = "INSERT INTO pubg_data (player_id, data) VALUES (?, ?)";
+            await database.query(sql, [player[0], JSON.stringify(playerData)]);
           } catch (error) {
             console.log(error);
           }
@@ -65,4 +90,51 @@ export default function useFetchAllPlayers(players) {
   };
 
   return { playersStats, setPlayersStats };
+}
+
+
+
+export function GetDataFromDB () {
+  const getStoredData = async () => {
+    const sql = "SELECT player_id, data FROM pubg_data";
+    const results = await database.query(sql);
+  
+    // Process the retrieved data
+    const storedData = results.map((row) => ({
+      player_id: row.player_id,
+      data: JSON.parse(row.data),
+    }));
+  
+    console.log(storedData);
+  };
+  
+  // Call the function to retrieve data
+  getStoredData();
+  
+}
+
+
+export function AddNewPlayer() {
+  const token = process.env.NEXT_PUBLIC_PUBGAPI;
+
+  useEffect(() => {
+    const fetchData = async () => {
+          const url = `https://api.pubg.com/shards/steam/players?filter[playerNames]=ghostdragon2005`;
+          let newPlayerData;
+
+            try {
+              const response = await axios.get(url, {
+                headers: {
+                  "Accept": "application/vnd.api+json",
+                  'Authorization': `Bearer ${token}`
+                }
+              });
+              newPlayerData = response.data;
+              console.log(newPlayerData)
+            } catch (error) {
+              console.log(error);
+            }
+    }
+    fetchData()
+  }, []);
 }
