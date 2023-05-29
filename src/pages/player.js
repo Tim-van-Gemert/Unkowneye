@@ -20,6 +20,11 @@ export default function Player (props) {
   console.log(currentPlayer[0].data.attributes.gameModeStats['squad-fpp'])
   const tempStats = currentPlayer[0].data.attributes.gameModeStats['squad-fpp']
   const WantedPVPStats = [['Wins', tempStats.wins], ['Kills', tempStats.kills], ['Assists', tempStats.assists], ['Longest Kill', tempStats.longestKill], ['Headshot Kills', tempStats.headshotKills], ['Total Damage', tempStats.damageDealt]]
+
+  const WantedUtility = [['Boosts', tempStats.boosts], ['Heals', tempStats.heals], ['Revives', tempStats.revives], ['DBNOs', tempStats.dBNOs]]
+
+  const WantedMisc = [['Team Kills', tempStats.teamKills], ['Most Survival Time', tempStats.mostSurvivalTime], ['Rounds Played', tempStats.roundsPlayed], ['suicides', tempStats.suicides], ['Walk Distance', tempStats.walkDistance], ['Weapons Acquired', tempStats.weaponsAcquired]]
+
   console.log(WantedPVPStats)
     return (
       <>
@@ -39,20 +44,7 @@ export default function Player (props) {
                     {
                       WantedPVPStats.map((e)=>{
                         return (
-                          <div className=' font-primary flex  rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase h-full'><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
-                        )
-                      }) 
-                    }
-                  </div>
-                </div>
-                <div className='flex flex-col gap-2'>
-                  <h1 className='text-[24px] font-primary'>BATTLE METRICS</h1>
-
-                  <div className=' flex flex-col justify-between h-full gap-4 w-full '>
-                    {
-                      WantedPVPStats.map((e)=>{
-                        return (
-                          <div className=' font-primary flex rounded-xl  w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase h-full'><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
+                          <div className=' font-primary flex  rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
                         )
                       }) 
                     }
@@ -63,9 +55,22 @@ export default function Player (props) {
 
                   <div className=' flex flex-col justify-between h-full gap-4 w-full '>
                     {
-                      WantedPVPStats.map((e)=>{
+                      WantedMisc.map((e)=>{
                         return (
-                          <div className=' font-primary flex rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase h-full'><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
+                          <div className=' font-primary flex rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
+                        )
+                      }) 
+                    }
+                  </div>
+                </div>
+                <div className='flex flex-col gap-2'>
+                  <h1 className='text-[24px] font-primary'>UTILITY</h1>
+
+                  <div className=' flex flex-col h-full gap-4 w-full '>
+                    {
+                      WantedUtility.map((e)=>{
+                        return (
+                          <div className=' font-primary flex rounded-xl  w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
                         )
                       }) 
                     }
