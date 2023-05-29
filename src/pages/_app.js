@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <div className='flex flex-col p-5 '>
+      <div className='flex flex-col p-10 gap-8 '>
       <Header/>
       <Component playersStats={playersStats} {...pageProps} />
     </div>
