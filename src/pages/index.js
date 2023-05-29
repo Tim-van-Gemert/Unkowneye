@@ -13,17 +13,18 @@ export default function Home(props) {
   if (isDataFetched) {
     return (
       <>
-        <div className="h-full font-thin grid grid-cols-3 gap-12 w-full p-5">
+        <div className="h-full font-thin grid grid-cols-3 gap-10 w-full p-5">
           {props.playersStats.map((player) => {
             const squadStats = player[0]?.data?.attributes?.gameModeStats?.['squad-fpp'] || {};
             const query = encodeURIComponent(JSON.stringify(player)); 
             return (
-              <div key={player.id} className="  w-full gap-12 justify-center rounded-2xl items-top h-full flex flex-row p-5">
-                {/* <img className="h-38 w-24" src="/player.png" alt="Player" /> */}
-                <div className="flex flex-col gap-4">
-                  <Link href={`/player?name=${player[1][1].toLowerCase()}`} className="font-primary flex flex-col">{player[1][1]}</Link>
-                </div>
-              </div>
+                <Link href={`/player?name=${player[1][1].toLowerCase()}`} key={player.id} className=" w-full rounded-xl bg-[#9D9D9D20]  h-full relative ">
+                    <img className="h-full w-full z-10" src="/player.png" alt="Player" />
+                    <div className="flex flex-col absolute left-5 top-2 z-20 gap-3">
+                        <div className="font-primary uppercase text-[28px] flex flex-col">{player[1][1]}</div>
+                        <div className='text-[8px] font-primary -mt-4 text-[#9D9D9D] uppercase'>{player[1][0]}</div>    
+                    </div>
+                </Link>
             );
           })}
         </div>

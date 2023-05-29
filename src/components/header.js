@@ -30,7 +30,7 @@ export default function Header () {
                     {
                         pages.map((page)=>{
                             return (
-                                <div key={`pageID: ${page.id}`} className="flex font-primary text-[20px] uppercase flex-col group">
+                                <div key={`pageID: ${page.id}`} className="flex font-primary text-[24px] uppercase flex-col group">
                                     <Link  href={page.slug}>{page.name}</Link>
                                     <div className="w-0 group-hover:w-full h-[2px] bg-black transition-all"></div>
                                 </div>

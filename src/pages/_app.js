@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <div className='flex flex-col  p-10 gap-8 '>
+      <div className='flex flex-col  p-10 gap-2 '>
       <Header/>
       <Component playersStats={playersStats} {...pageProps} />
     </div>
