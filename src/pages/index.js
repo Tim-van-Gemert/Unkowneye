@@ -13,8 +13,8 @@ export default function Home(props) {
   if (isDataFetched) {
     return (
       <>
-        <h1 className="font-primary font-thin text-[50px] p-5 ">UNKNOWNEYE</h1>
-        <div className="h-full font-thin grid grid-cols-3 gap-10  w-full p-5">
+        <h1 className="font-primary font-thin text-[50px]  pb-6 text-center lg:text-start lg:p-5 ">UNKNOWNEYE</h1>
+        <div className="h-full font-thin grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10  w-full  lg:p-5">
           {props.playersStats.map((player) => {
             const squadStats = player[0]?.data?.attributes?.gameModeStats?.['squad-fpp'] || {};
             const query = encodeURIComponent(JSON.stringify(player)); 

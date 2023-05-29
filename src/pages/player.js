@@ -35,7 +35,7 @@ export default function Player (props) {
                 <h1 className='text-[50px] font-primary uppercase -mt-6 '>{currentPlayer[1][1]}</h1>
                 <div className='text-[10px] font-primary -mt-2 text-[#9D9D9D] uppercase'>{currentPlayer[1][0]}</div>
               </div>
-              <div className='flex grid grid-cols-4 w-full h-full gap-6'>
+              <div className='flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full  gap-12 lg:gap-6'>
               <img src='/playerFull.png' className=' min-h-full rounded-xl bg-[#9D9D9D10] h-full object-cover'></img>
                 <div className='flex flex-col gap-2'>
                   <h1 className='text-[24px] font-primary'>BATTLE METRICS</h1>
