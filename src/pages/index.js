@@ -13,12 +13,13 @@ export default function Home(props) {
   if (isDataFetched) {
     return (
       <>
-        <div className="h-full font-thin grid grid-cols-3 gap-10 w-full p-5">
+        <h1 className="font-primary font-thin text-[50px] p-5 ">UNKNOWNEYE</h1>
+        <div className="h-full font-thin grid grid-cols-3 gap-10  w-full p-5">
           {props.playersStats.map((player) => {
             const squadStats = player[0]?.data?.attributes?.gameModeStats?.['squad-fpp'] || {};
             const query = encodeURIComponent(JSON.stringify(player)); 
             return (
-                <Link href={`/player?name=${player[1][1].toLowerCase()}`} key={player.id} className=" w-full rounded-xl bg-[#9D9D9D20]  h-full relative ">
+                <Link href={`/player?name=${player[1][1].toLowerCase()}`} key={player.id} className=" w-full hover:-translate-y-2 transition-all rounded-xl bg-[#9D9D9D20]  h-full relative ">
                     <img className="h-full w-full z-10" src="/player.png" alt="Player" />
                     <div className="flex flex-col absolute left-5 top-2 z-20 gap-3">
                         <div className="font-primary uppercase text-[28px] flex flex-col">{player[1][1]}</div>
