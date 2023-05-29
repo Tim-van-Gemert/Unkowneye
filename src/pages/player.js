@@ -44,7 +44,7 @@ export default function Player (props) {
                     {
                       WantedPVPStats.map((e)=>{
                         return (
-                          <div className=' font-primary flex  rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
+                          <div key={e[0]} className=' font-primary flex  rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
                         )
                       }) 
                     }
@@ -57,7 +57,7 @@ export default function Player (props) {
                     {
                       WantedMisc.map((e)=>{
                         return (
-                          <div className=' font-primary flex rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
+                          <div key={e[0]} className=' font-primary flex rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
                         )
                       }) 
                     }
@@ -70,7 +70,7 @@ export default function Player (props) {
                     {
                       WantedUtility.map((e)=>{
                         return (
-                          <div className=' font-primary flex rounded-xl  w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
+                          <div key={e[0]} className=' font-primary flex rounded-xl  w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '><div className='font-bold '>{e[0]}</div> : <div>{e[1]}</div></div>
                         )
                       }) 
                     }
