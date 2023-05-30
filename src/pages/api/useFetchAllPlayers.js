@@ -2,9 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import NodeCache from 'node-cache';
 
+// Create a shared cache instance
+const cache = new NodeCache({ stdTTL: 60, checkperiod: 120 });
 export default function useFetchPlayerData(playerId, token) {
   const [playerStats, setPlayerStats] = useState(null);
-  const cache = new NodeCache({ stdTTL: 60, checkperiod: 120 });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,8 +39,12 @@ export default function useFetchPlayerData(playerId, token) {
       setPlayerStats(playerData);
     };
 
-    fetchData();
-  }, []);
+    if (playerId) {
+      fetchData();
+    } else {
+      setPlayerStats(null);
+    }
+  }, [playerId, token]);
 
   return { playerStats };
 }
