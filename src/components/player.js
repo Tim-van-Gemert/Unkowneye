@@ -65,7 +65,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
             <div className='flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full  gap-12 lg:gap-6'>
               <img
                 src='/playerFull.png'
-                className='min-h-full rounded-xl bg-[#9D9D9D10] h-full object-cover'
+                className='sm:min-h-full rounded-xl bg-[#9D9D9D10] sm:h-full object-cover'
               ></img>
               <div className='flex flex-col gap-2'>
                 <h1 className='text-[24px] font-primary'>BATTLE METRICS</h1>
