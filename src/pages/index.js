@@ -35,9 +35,13 @@ export default function Home(props) {
   if (isDataFetched) {
     return (
       <>
-        <h1 className="font-primary font-thin text-[40px] sm:text-[50px] pb-6 text-center lg:text-start lg:p-5">
+        <motion.h1 
+        className="font-primary font-thin text-[40px] sm:text-[50px] pb-6 text-center lg:text-start lg:p-5"
+        initial="hidden"
+        animate="visible"
+        variants={staggerVariants}>
           UNKNOWNEYE
-        </h1>
+        </motion.h1>
         <AnimatePresence initial={props.initialLoad ? true : false}>
           <motion.div
             initial="hidden"
@@ -89,7 +93,7 @@ export default function Home(props) {
   } else {
     return (
       <>
-        <div className="text-black">Loading GoonSquad...</div>
+        {/* <div className="text-black">Loading GoonSquad...</div> */}
       </>
     );
   }

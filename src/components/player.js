@@ -2,12 +2,23 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useFetchPlayerData from '../pages/api/useFetchAllPlayers';
+import { motion, AnimatePresence } from "framer-motion";
+
 
 export default function Player({ playerId, pubgApiToken, players }) {
   const [currentPlayer, setCurrentPlayer] = useState(null);
 
   const router = useRouter();
   const { playername } = router.query;
+
+  const playerVariants = {
+    visible: {
+      opacity: 1,
+    },
+    hidden: {
+      opacity: 0,
+    },
+  };
 
   useEffect(() => {
     if (!currentPlayer) {
@@ -52,7 +63,11 @@ export default function Player({ playerId, pubgApiToken, players }) {
 
     return (
       <>
-        <div className='w-full  p-5 flex gap-12 flex-row'>
+        <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={playerVariants}
+        className='w-full  p-5 flex gap-12 flex-row'>
           <div className='flex w-fit flex-col gap-6'>
             <div className='flex flex-col'>
               <h1 className='text-[50px] font-primary uppercase -mt-6 '>
@@ -117,11 +132,11 @@ export default function Player({ playerId, pubgApiToken, players }) {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
         <Link href={'/'}>GO BACK</Link>
       </>
     );
   } else {
-    return <div>Loading...</div>;
+    // return <div>Loading...</div>;
   }
 }
