@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Head from "next/head";
 
 export default function Home(props) {
   const [isDataFetched, setIsDataFetched] = useState(false);
@@ -35,6 +36,10 @@ export default function Home(props) {
   if (isDataFetched) {
     return (
       <>
+        <Head>
+          <title>UNKNOWNEYE</title>
+          <meta name="description" content="Meta description for the Home page" />
+        </Head>
         <motion.h1 
         className="font-primary font-thin text-[40px] sm:text-[50px] pb-6 text-center lg:text-start lg:p-5"
         initial="hidden"

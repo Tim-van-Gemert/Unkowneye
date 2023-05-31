@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useFetchPlayerData from '../pages/api/useFetchAllPlayers';
 import { motion, AnimatePresence } from "framer-motion";
+import Head from "next/head";
 
 
 export default function Player({ playerId, pubgApiToken, players }) {
@@ -60,9 +61,14 @@ export default function Player({ playerId, pubgApiToken, players }) {
       ['Walk Distance', tempStats.walkDistance],
       ['Weapons Acquired', tempStats.weaponsAcquired]
     ];
+    
 
     return (
       <>
+      <Head>
+        <title>Stats | {currentPlayer[1]}</title>
+        <meta name="description" content="Meta description for the Home page" />
+      </Head>
         <motion.div 
         initial="hidden"
         animate="visible"
