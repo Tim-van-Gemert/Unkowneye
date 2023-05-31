@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <div className='flex flex-col xl:pl-36 xl:pr-36 p-10 gap-2 '>
+      <div className='flex flex-col p-10 gap-2 '>
       {/* <Header/> */}
       <Component players={players} {...pageProps} />
     </div>

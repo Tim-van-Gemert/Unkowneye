@@ -24,12 +24,12 @@ export default function Home(props) {
             const query = new URLSearchParams({ playerName }).toString().toLowerCase();
 
             return (
-              <Link href={{ pathname: '/stats', query }} key={playerName} className=" w-full hover:-translate-y-2 transition-all rounded-xl bg-[#9D9D9D20]  h-full relative ">
-                <img className="h-full w-full z-10" src="/player.png" alt="Player" />
-                <div className="flex flex-col absolute left-5 top-2 z-20 gap-3">
+              <Link href={{ pathname: '/stats', query }} key={playerName} className=" w-full hover:-translate-y-2 transition-all rounded-xl bg-[#9D9D9D20] flex flex-row h-full relative ">
+                <div className="flex flex-col  w-1/2 z-20 p-3 pl-6 gap-3">
                   <div className="font-primary uppercase text-[28px] flex flex-col">{playerName}</div>
                   <div className='text-[8px] font-primary -mt-4 text-[#9D9D9D] uppercase'>{playerId}</div>    
                 </div>
+                <img className="h-full w-1/2 z-10" src="/player.png" alt="Player" />
               </Link>
             );
           })}
