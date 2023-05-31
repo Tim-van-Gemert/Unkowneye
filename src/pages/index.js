@@ -13,7 +13,7 @@ export default function Home(props) {
   if (isDataFetched) {
     return (
       <>
-        <h1 className="font-primary font-thin text-[50px]  pb-6 text-center lg:text-start lg:p-5 ">UNKNOWNEYE</h1>
+        <h1 className="font-primary font-thin text-[40px] sm:text-[50px]  pb-6 text-center lg:text-start lg:p-5 ">UNKNOWNEYE</h1>
         <div className="h-full font-thin grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10  w-full  lg:p-5">
           {props.players.map((player) => {
             const playerId = player[0];
@@ -24,12 +24,12 @@ export default function Home(props) {
             const query = new URLSearchParams({ playerName }).toString().toLowerCase();
 
             return (
-              <Link href={{ pathname: '/stats', query }} key={playerName} className=" w-full hover:-translate-y-2 transition-all rounded-xl bg-[#9D9D9D20] flex flex-row h-full relative ">
-                <div className="flex flex-col  w-1/2 z-20 p-3 pl-6 gap-3">
-                  <div className="font-primary uppercase text-[28px] flex flex-col">{playerName}</div>
-                  <div className='text-[8px] font-primary -mt-4 text-[#9D9D9D] uppercase'>{playerId}</div>    
+              <Link href={{ pathname: '/stats', query }} key={playerName} className=" w-full hover:-translate-y-2 items-end  transition-all rounded-xl  bg-[#9D9D9D20] flex flex-col h-fit relative ">
+                <div className="flex flex-col  w-full  z-20 p-3 -mb-4 md:-mb-8 lg:-mb-14  pl-6 gap-3">
+                  <div className="font-primary uppercase  text-[28px] flex flex-col">{playerName}</div>
+                  <div className='sm:text-[8px] text-[6px] font-primary -mt-4 text-[#9D9D9D] uppercase'>{playerId}</div>    
                 </div>
-                <img className="h-full w-1/2 z-10" src="/player.png" alt="Player" />
+                <img className="h-2/3 w-2/3 sm:h-1/2  sm:w-1/2 z-10" src="/player.png" alt="Player" />
               </Link>
             );
           })}
