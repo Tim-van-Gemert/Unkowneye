@@ -133,7 +133,10 @@ export default function Player({ playerId, pubgApiToken, players }) {
             </div>
           </div>
         </motion.div>
-        <Link href={'/'}>GO BACK</Link>
+        <div className='p-5 flex flex-col w-fit group'>
+          <Link href={'/'}>Back</Link>
+          <div className='w-0 h-px bg-black transition-all group-hover:w-full'></div>
+        </div>
       </>
     );
   } else {
