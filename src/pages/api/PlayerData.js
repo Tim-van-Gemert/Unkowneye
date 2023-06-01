@@ -4,7 +4,7 @@ import NodeCache from 'node-cache';
 
 // Create a shared cache instance
 const cache = new NodeCache({ stdTTL: 60, checkperiod: 120 });
-export default function useFetchPlayerData(playerId, token) {
+export default function FetchPlayerData(playerId, token) {
   const [playerStats, setPlayerStats] = useState(null);
 
   useEffect(() => {
@@ -30,6 +30,7 @@ export default function useFetchPlayerData(playerId, token) {
           });
 
           playerData = response.data;
+          // console.log(playerData)
           cache.set(playerId.toString(), playerData);
         } catch (error) {
           console.log(error);

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import useFetchPlayerData from '../pages/api/useFetchAllPlayers';
+import useFetchPlayerData from '../pages/api/PlayerData';
 
 export default function Player({ playerId, pubgApiToken, players }) {
   const [currentPlayer, setCurrentPlayer] = useState(null);
@@ -16,6 +16,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
       );
 
       if (foundPlayer) {
+
         setCurrentPlayer(foundPlayer);
       }
     }
@@ -24,6 +25,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
   const { playerStats } = useFetchPlayerData(playerId, pubgApiToken);
 
   if (playerStats) {
+
     const tempStats = playerStats.data.attributes.gameModeStats['squad-fpp'];
     const WantedPVPStats = [
       ['Wins', tempStats.wins],
