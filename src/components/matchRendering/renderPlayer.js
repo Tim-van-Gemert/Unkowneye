@@ -8,10 +8,13 @@ const RenderPlayer = ({ ctx, player, x, y, color, prevX, prevY }) => {
         playerColor: color,
     };
 
+
     ctx.fillStyle = color;
     ctx.beginPath();
     ctx.arc(playerCircle.xCord, playerCircle.yCord, playerCircle.radius, 0, 2 * Math.PI);
     ctx.fill();
+    
+
 
 
     // if (prevX != null || prevY != null) {

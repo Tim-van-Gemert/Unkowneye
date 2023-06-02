@@ -16,9 +16,9 @@ const processPlayer = ({ctx, player, RawX, RawY, rawPrevX, rawPrevY}) => {
     // if (prevX != null || prevY != null) {
     //     ctx.clearRect(prevX - 10, prevY - 10, 20, 20);
     // }
-    setTimeout(() => {
-        RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
-    }, 1500)
+
+    RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
+
     
 };
 
