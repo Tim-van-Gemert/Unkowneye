@@ -34,29 +34,29 @@ async function Initiate(canvasRef, telemetryData, setPlayerArray) {
 
   for (let i = 2500; i < telemetryData.length; i++) {
     if (telemetryData[i]?.character) {
-      if (telemetryData[i]?.character?.location) {
-        const player = telemetryData[i]?.character;
-        const RawX = player.location.x;
-        const RawY = player.location.y;
-        const id = player.accountId;
+      if (telemetryData[i]?.character.name == 'TIMMAHHH') {
+        if (telemetryData[i]?.character?.location) {
+          const player = telemetryData[i]?.character;
+          const RawX = player.location.x;
+          const RawY = player.location.y;
+          const id = player.accountId;
 
-        if (!playerIds.has(player)) {
-          playerIds.add(player);
-          processPlayer({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray });
-          if (playerIds.size === 64 ){
-            playerIds.clear()
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the circular area
+          if (!playerIds.has(player)) {
+            playerIds.add(player);
+            processPlayer({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray });
+            if (playerIds.size === 64 ){
+              playerIds.clear()
+            } 
+          }
 
-          } 
+
+          rawPrevX = RawX;
+          rawPrevY = RawY;
         }
-
-
-        rawPrevX = RawX;
-        rawPrevY = RawY;
       }
     }
 
-    await timer(0);
+    await timer(10);
   }
 }
 
