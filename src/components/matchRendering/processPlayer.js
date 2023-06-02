@@ -1,25 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RenderPlayer from './renderPlayer';
 
-const processPlayer = ({ctx, player, RawX, RawY, rawPrevX, rawPrevY}) => {
+const processPlayer = ({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray }) => {
 
-    const x = RawX * 0.0652 / 10;
-    const y = RawY * 0.0652 / 10;
-    const prevX = rawPrevX * 0.0652 / 10;
-    const prevY = rawPrevY * 0.0652 / 10;
-    let color = 'yellow'
+  // Karakin cords calculations
+  // Canvas Width && Height: 500 x 500
+  // Karakin Width && Height: 2000 x 2000
+  // Formula: 500 : 2000 = 0.25
 
-    if (player.name == 'TIMMAHHH') {
-        console.log(color)
-        color = '#FF0000'
-    } 
-    // if (prevX != null || prevY != null) {
-    //     ctx.clearRect(prevX - 10, prevY - 10, 20, 20);
-    // }
+  // Erangel cords calculations
+  // Canvas Width && Height: 1200 x 1200
+  // Karakin Width && Height: 8000 x 8000
+  // Formula: 1200 : 8000 = 0.0652
 
-    RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
+  const x = RawX * 0.6 / 100;
+  const y = RawY * 0.6/ 100;
+  const prevX = rawPrevX * 0.25 / 1000;
+  const prevY = rawPrevY * 0.25 / 1000;
+  let color = 'yellow';
 
-    
+  if (player.name === 'TIMMAHHH') {
+    color = '#FF0000';
+  }
+
+  const playerCircle = {
+    name: player.name,
+    id: player.accountId,
+    xCord: x,
+    xPrev: prevX,
+    yCord: y,
+    yPrev: prevY,
+    radius: 10,
+    playerColor: color,
+  };
+
+  setPlayerArray((prevArray) => {
+    if (!prevArray.some((p) => p.id === player.accountId)) {
+      return [...prevArray, playerCircle];
+    }
+    return prevArray;
+  });
+
+  return RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
 };
 
 export default processPlayer;
