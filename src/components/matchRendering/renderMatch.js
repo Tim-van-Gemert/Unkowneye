@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import processPlayer from './processPlayer';
 import ClearCanvas from './clearCanvas';
 
-export default function drawMatch({ telemetryData }) {
+export default function DrawMatch({ telemetryData }) {
   const [showMap, setShowMap] = useState(false);
   const [playerArray, setPlayerArray] = useState([]);
   const canvasRef = useRef(null);
