@@ -27,19 +27,19 @@ export default function Stats(props) {
   return (
     <>
       {currentPlayer && (
-        <>
-          <Player
+        <div className='flex flex-col gap-12'>
+          {/* <Player
             playerId={currentPlayer[0]}
             pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}
             players={props.players}
             currentPlayer={currentPlayer}
-          />
+          /> */}
           <FetchMatchData
            pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}
            />
            <DrawMatch/>
-           <Link className='mt-4' href={'/'}>GO BACK</Link>
-        </>
+           <Link href={'/'}>GO BACK</Link>
+        </div>
       )}
     </>
   );

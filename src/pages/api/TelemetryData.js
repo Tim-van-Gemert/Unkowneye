@@ -34,7 +34,7 @@ function TelemetryComponent({ matchData }) {
       {telemetryData ? (
         <DrawMatch telemetryData={telemetryData} /> // Pass the parsed telemetry data to the drawMatch component
       ) : (
-        'Loading...' // Render a loading indicator while waiting for the telemetry data to be fetched and parsed
+        'Loading Map...' // Render a loading indicator while waiting for the telemetry data to be fetched and parsed
       )}
     </div>
   );
