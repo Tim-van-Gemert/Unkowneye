@@ -1,8 +1,7 @@
 import '@/styles/globals.css'
 import Header from '@/components/header'
-import useFetchAllPlayers from "./api/useFetchAllPlayers";
-import { AddNewPlayer } from './api/useFetchAllPlayers';
-import { useState } from 'react';
+import useFetchAllPlayers from "./api/PlayerData";
+import { AddNewPlayer } from './api/PlayerData';
 
 
 export default function App({ Component, pageProps }) {
