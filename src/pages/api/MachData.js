@@ -22,7 +22,6 @@ export default function FetchMatchData({ token }) {
     };
     fetchMatchData();
   }, [token]);
-
   return (
     <div>
       {matchData && <TelemetryComponent matchData={matchData} />}

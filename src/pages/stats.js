@@ -2,6 +2,8 @@ import Player from '../components/player';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import FetchMatchData from './api/MachData';
+import DrawMatch from '@/components/drawMatch';
+import Link from 'next/link';
 
 export default function Stats(props) {
   // Assuming you have the playerId and pubgApiToken available
@@ -35,6 +37,8 @@ export default function Stats(props) {
           <FetchMatchData
            pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}
            />
+           <DrawMatch/>
+           <Link className='mt-4' href={'/'}>GO BACK</Link>
         </>
       )}
     </>

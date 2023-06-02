@@ -120,7 +120,6 @@ export default function Player({ playerId, pubgApiToken, players }) {
             </div>
           </div>
         </div>
-        <Link href={'/'}>GO BACK</Link>
       </>
     );
   } else {
