@@ -34,7 +34,6 @@ async function Initiate(canvasRef, telemetryData, setPlayerArray) {
 
   for (let i = 2500; i < telemetryData.length; i++) {
     if (telemetryData[i]?.character) {
-      if (telemetryData[i]?.character.name == 'TIMMAHHH') {
         if (telemetryData[i]?.character?.location) {
           const player = telemetryData[i]?.character;
           const RawX = player.location.x;
@@ -46,14 +45,15 @@ async function Initiate(canvasRef, telemetryData, setPlayerArray) {
             processPlayer({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray });
             if (playerIds.size === 64 ){
               playerIds.clear()
+              ctx.clearRect(0, 0 , canvas.width, canvas.height);
             } 
           }
+
 
 
           rawPrevX = RawX;
           rawPrevY = RawY;
         }
-      }
     }
 
     await timer(10);

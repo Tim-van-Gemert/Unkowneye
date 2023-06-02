@@ -17,11 +17,8 @@ const processPlayer = ({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerA
   const y = RawY * 0.6/ 100;
   const prevX = rawPrevX * 0.25 / 1000;
   const prevY = rawPrevY * 0.25 / 1000;
-  let color = 'yellow';
+  let color = 'white';
 
-  if (player.name === 'TIMMAHHH') {
-    color = '#FF0000';
-  }
 
   const playerCircle = {
     name: player.name,
