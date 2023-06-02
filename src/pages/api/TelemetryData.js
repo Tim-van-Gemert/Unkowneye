@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import DrawMatch from '../../components/drawMatch'; // Import the drawMatch component
+import DrawMatch from '../../components/matchRendering/renderMatch'; // Import the drawMatch component
 
 function TelemetryComponent({ matchData }) {
   const [telemetryData, setTelemetryData] = useState(null);

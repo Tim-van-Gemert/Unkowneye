@@ -2,7 +2,7 @@ import Player from '../components/player';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import FetchMatchData from './api/MachData';
-import DrawMatch from '@/components/drawMatch';
+import DrawMatch from '@/components/matchRendering/renderMatch';
 import Link from 'next/link';
 
 export default function Stats(props) {
@@ -28,12 +28,12 @@ export default function Stats(props) {
     <>
       {currentPlayer && (
         <div className='flex flex-col gap-12'>
-          {/* <Player
+          <Player
             playerId={currentPlayer[0]}
             pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}
             players={props.players}
             currentPlayer={currentPlayer}
-          /> */}
+          />
           <FetchMatchData
            pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}
            />
