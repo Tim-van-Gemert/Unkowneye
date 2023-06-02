@@ -38,7 +38,6 @@ export default function Stats(props) {
            pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}
            />
            <DrawMatch/>
-           <Link href={'/'}>GO BACK</Link>
         </div>
       )}
     </>

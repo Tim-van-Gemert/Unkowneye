@@ -27,7 +27,7 @@ export default function FetchMatchData({ token }) {
       <div className='font-primary flex rounded-xl  w-full flex-row  p-5 uppercase '>
         <div className='font-bold '>EARLY DEMO MATCH REPLAY</div> :{' '}
       </div>
-      {matchData && <TelemetryComponent matchData={matchData} />}
+      {matchData && <TelemetryComponent matchData={matchData} />} 
     </div>
   );
 }

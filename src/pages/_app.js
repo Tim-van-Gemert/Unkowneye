@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import { useState } from 'react';
 import Header from '@/components/header'
 import useFetchAllPlayers from "./api/PlayerData";
 import { AddNewPlayer } from './api/PlayerData';

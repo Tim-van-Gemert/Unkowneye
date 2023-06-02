@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import DrawMatch from '../../components/matchRendering/renderMatch'; // Import the drawMatch component
+import Link from 'next/link';
 
 function TelemetryComponent({ matchData }) {
   const [telemetryData, setTelemetryData] = useState(null);
@@ -32,7 +33,13 @@ function TelemetryComponent({ matchData }) {
   return (
     <div>
       {telemetryData ? (
-        <DrawMatch telemetryData={telemetryData} /> // Pass the parsed telemetry data to the drawMatch component
+        <>
+          <DrawMatch telemetryData={telemetryData} />
+          <div className='p-5 flex flex-col w-fit group'>
+          <Link href={'/'}>Back</Link>
+          <div className='w-0 h-px bg-black transition-all group-hover:w-full'></div>
+        </div>
+        </>
       ) : (
         'Loading Map...' // Render a loading indicator while waiting for the telemetry data to be fetched and parsed
       )}

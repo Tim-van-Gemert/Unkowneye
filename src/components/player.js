@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useFetchPlayerData from '../pages/api/PlayerData';
+import Head from 'next/head';
+import { motion } from 'framer-motion';
 
 export default function Player({ playerId, pubgApiToken, players }) {
   const [currentPlayer, setCurrentPlayer] = useState(null);
@@ -138,10 +140,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
             </div>
           </div>
         </motion.div>
-        <div className='p-5 flex flex-col w-fit group'>
-          <Link href={'/'}>Back</Link>
-          <div className='w-0 h-px bg-black transition-all group-hover:w-full'></div>
-        </div>
+
       </>
     );
   } else {
