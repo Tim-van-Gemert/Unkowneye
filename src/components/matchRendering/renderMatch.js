@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import processPlayer from './processPlayer';
+import ClearCanvas from './clearCanvas';
 
 export default function drawMatch({ telemetryData }) {
   const [showMap, setShowMap] = useState(false);
@@ -33,30 +34,31 @@ async function Initiate(canvasRef, telemetryData, setPlayerArray) {
 
   for (let i = 2500; i < telemetryData.length; i++) {
     if (telemetryData[i]?.character) {
-        if (telemetryData[i]?.character?.location) {
-          const player = telemetryData[i]?.character;
-          const RawX = player.location.x;
-          const RawY = player.location.y;
-          const id = player.accountId;
+      if (telemetryData[i]?.character?.location) {
+        const player = telemetryData[i]?.character;
+        const RawX = player.location.x;
+        const RawY = player.location.y;
+        const id = player.accountId;
 
-          if (!playerIds.has(id)) {
-            playerIds.add(id);
-            processPlayer({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray });
-          } else if (playerIds.size == 64 ){
-            console.log( playerIds.size)
+        if (!playerIds.has(player)) {
+          playerIds.add(player);
+          processPlayer({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray });
+          if (playerIds.size === 64 ){
             playerIds.clear()
-          }
-          rawPrevX = RawX;
-          rawPrevY = RawY;
-        }
-      }
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the circular area
 
-      await timer(100);
+          } 
+        }
+
+
+        rawPrevX = RawX;
+        rawPrevY = RawY;
+      }
     }
 
-
+    await timer(0);
+  }
 }
-
 
 function timer(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
