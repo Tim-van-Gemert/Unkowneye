@@ -38,8 +38,8 @@ const processPlayer = ({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerA
     return prevArray;
   });
 
-  // return RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
-  return RenderPath({ ctx, player, x, y, color, prevX, prevY });
+  return RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
+  // return RenderPath({ ctx, player, x, y, color, prevX, prevY });
 };
 
 export default processPlayer;
