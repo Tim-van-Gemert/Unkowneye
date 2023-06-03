@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RenderPlayer from './renderPlayer';
-
+import RenderPath from './renderPath';
 const processPlayer = ({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray }) => {
 
   // Karakin cords calculations
@@ -13,10 +13,10 @@ const processPlayer = ({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerA
   // Karakin Width && Height: 8000 x 8000
   // Formula: 1200 : 8000 = 0.0652
 
-  const x = RawX * 0.6 / 100;
+  const x = RawX * 0.6/ 100;
   const y = RawY * 0.6/ 100;
-  const prevX = rawPrevX * 0.25 / 1000;
-  const prevY = rawPrevY * 0.25 / 1000;
+  const prevX = rawPrevX * 0.6 / 100;
+  const prevY = rawPrevY * 0.6 / 100;
   let color = 'white';
 
 
@@ -38,7 +38,8 @@ const processPlayer = ({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerA
     return prevArray;
   });
 
-  return RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
+  // return RenderPlayer({ ctx, player, x, y, color, prevX, prevY });
+  return RenderPath({ ctx, player, x, y, color, prevX, prevY });
 };
 
 export default processPlayer;
