@@ -42,14 +42,9 @@ async function Initiate(canvasRef, telemetryData, setPlayerArray) {
 
           if (!playerIds.has(player)) {
             playerIds.add(player);
-            processPlayer({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray });
-            if (playerIds.size === 64 ){
-              playerIds.clear()
-              ctx.clearRect(0, 0 , canvas.width, canvas.height);
-            } 
+          } else {
+            const found = playerIds.find(element => element > 10);
           }
-
-
 
           rawPrevX = RawX;
           rawPrevY = RawY;
@@ -63,3 +58,6 @@ async function Initiate(canvasRef, telemetryData, setPlayerArray) {
 function timer(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+
+// processPlayer({ ctx, player, RawX, RawY, rawPrevX, rawPrevY, setPlayerArray });
