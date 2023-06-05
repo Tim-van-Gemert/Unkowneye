@@ -73,7 +73,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
         initial="hidden"
         animate="visible"
         variants={playerVariants}
-        className='w-full  p-5 flex gap-12 flex-row'>
+        className='w-full  p-5 flex gap-12 flex-row sm:p-10 p-4'>
           <div className='flex w-full sm:w-fit flex-col justify-center sm:justify-start sm:items-start items-center gap-6'>
             <div className='flex flex-col'>
               <h1 className='sm:text-[50px]  text-[35px] font-primary uppercase -mt-6 '>

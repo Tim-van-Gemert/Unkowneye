@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Head from "next/head";
+import Header from "@/components/header";
 
 export default function Home(props) {
   const [isDataFetched, setIsDataFetched] = useState(false);
@@ -40,19 +41,13 @@ export default function Home(props) {
           <title>UNKNOWNEYE</title>
           <meta name="description" content="Meta description for the Home page" />
         </Head>
-        <motion.h1 
-        className="font-primary font-thin text-[40px] sm:text-[50px] pb-6 text-center lg:text-start lg:p-5"
-        initial="hidden"
-        animate="visible"
-        variants={staggerVariants}>
-          UNKNOWNEYE
-        </motion.h1>
+
         <AnimatePresence initial={props.initialLoad ? true : false}>
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerVariants}
-            className="h-full font-thin grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full lg:p-5"
+            className="h-full font-thin grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full sm:p-10 p-4"
           >
             {props.players.map((player, index) => {
               const playerId = player[0];
@@ -74,7 +69,7 @@ export default function Home(props) {
                   <Link href={{ pathname: "/stats", query }} className="w-full  items-end flex flex-col " onClick={() => {
                     props.setInitialLoad(false)
                   }}>
-                    <div className="flex flex-col w-full z-20  p-3 -mb-4 md:-mb-8 lg:-mb-14 pl-6 gap-3">
+                    <div className="flex flex-col w-full z-20  p-3   pl-6 gap-3">
                       <div className="font-primary uppercase text-[28px] flex flex-col">
                         {playerName}
                       </div>
@@ -83,7 +78,7 @@ export default function Home(props) {
                       </div>
                     </div>
                     <img
-                      className="h-2/3 w-2/3 sm:h-1/2  sm:w-1/2 z-10"
+                      className="h-2/3 w-2/3 sm:h-1/2 -mt-12 sm:w-1/2 z-10"
                       src="/player.png"
                       alt="Player"
                     />

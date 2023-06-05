@@ -1,43 +1,25 @@
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function Header () {
-    const pages = [
-        {
-            id: 1,
-            name: 'Home',
-            slug: '/',
+    const staggerVariants = {
+        visible: {
+          opacity: 1,
         },
-        {
-            id: 2,
-            name: 'Stats',
-            slug: '/stats',
+        hidden: {
+          opacity: 0,
         },
-        {
-            id: 3,
-            name: 'Matches',
-            slug: '/matches',
-        },
-        {
-            id: 4,
-            name: 'Clan',
-            slug: '/clan',
-        }
-    ]
+      };
     return (
         <>
-            <div className="w-screen text-lg font-thin h-full p-5  font-primary gap-12  min-w-screen min-h-full flex flex-row">
+            <motion.h1 
+            className="font-sec sm:p-10 p-4  bg-[url('/header2.jpeg')] bg-cover bg-center text-white font-thin text-[28px] sm:text-[50px]  text-center lg:text-start "
+            initial="hidden"
+            animate="visible"
+            variants={staggerVariants}>
+            UNKNOWNEYE
+            </motion.h1>
 
-                    {
-                        pages.map((page)=>{
-                            return (
-                                <div key={`pageID: ${page.id}`} className="flex font-primary text-[24px] uppercase flex-col group">
-                                    <Link  href={page.slug}>{page.name}</Link>
-                                    <div className="w-0 group-hover:w-full h-[2px] bg-black transition-all"></div>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
         </>
     )
 }
