@@ -138,6 +138,10 @@ export default function Player({ playerId, pubgApiToken, players }) {
                 </div>
               </div>
             </div>
+            <div className='w-fit group'>
+              <Link  href={'/'}>Home</Link>
+              <div className='w-0 bg-black h-px transition-all group-hover:w-full'></div>
+            </div>
           </div>
         </motion.div>
 

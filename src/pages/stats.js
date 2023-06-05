@@ -34,10 +34,10 @@ export default function Stats(props) {
             players={props.players}
             currentPlayer={currentPlayer}
           />
-          <FetchMatchData
+          {/* <FetchMatchData
            pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}
            />
-           <DrawMatch/>
+           <DrawMatch/> */}
         </div>
       )}
     </>
