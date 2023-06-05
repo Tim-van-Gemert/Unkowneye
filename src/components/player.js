@@ -75,19 +75,21 @@ export default function Player({ playerId, pubgApiToken, players }) {
         variants={playerVariants}
         className='w-full  p-5 flex gap-12 flex-row sm:p-10 p-4'>
           <div className='flex w-full sm:w-fit flex-col justify-center sm:justify-start sm:items-start items-center gap-6'>
-            <div className='flex flex-col'>
-              <h1 className='sm:text-[50px]  text-[35px] font-primary uppercase -mt-6 '>
+
+            <div className='flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full  gap-12 lg:gap-6'>
+            <div className='flex flex-col gap-2'>
+              <h1 className='text-[24px] font-primary uppercase '>
                 {currentPlayer[1]}
               </h1>
-              <div className='text-[10px] text-center sm:text-start font-primary -mt-2 text-[#9D9D9D] uppercase'>
+              {/* <div className='text-[10px] text-center sm:text-start font-primary -mt-2 text-[#9D9D9D] uppercase'>
                 {currentPlayer[0]}
-              </div>
-            </div>
-            <div className='flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full  gap-12 lg:gap-6'>
+              </div> */}
               <img
                 src='/playerFull.png'
-                className='sm:min-h-full hidden sm:block rounded-xl bg-[#f0f0f0] sm:h-full object-cover'
+                className='hidden sm:block rounded-xl bg-[#f0f0f0] sm:h-full object-cover'
               ></img>
+            </div>
+
               <div className='flex flex-col gap-2'>
                 <h1 className='text-[24px] font-primary'>BATTLE METRICS</h1>
                 <div className='flex flex-col justify-between  h-full gap-4 w-full '>

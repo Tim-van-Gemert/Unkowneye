@@ -47,7 +47,7 @@ export default function Home(props) {
             initial="hidden"
             animate="visible"
             variants={staggerVariants}
-            className="h-full font-thin grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full sm:p-10 p-4"
+            className="h-fit font-thin grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full sm:p-10 p-4"
           >
             {props.players.map((player, index) => {
               const playerId = player[0];
