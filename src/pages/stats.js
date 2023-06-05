@@ -27,7 +27,7 @@ export default function Stats(props) {
   return (
     <>
       {currentPlayer && (
-        <div className='flex flex-col gap-12'>
+        <div className='flex flex-col  gap-12 '>
           <Player
             playerId={currentPlayer[0]}
             pubgApiToken={process.env.NEXT_PUBLIC_PUBGAPI}

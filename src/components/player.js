@@ -68,19 +68,18 @@ export default function Player({ playerId, pubgApiToken, players }) {
       <>
       <Head>
         <title>Stats | {currentPlayer[1]}</title>
-        <meta name="description" content="Meta description for the Home page" />
       </Head>
         <motion.div 
         initial="hidden"
         animate="visible"
         variants={playerVariants}
         className='w-full  p-5 flex gap-12 flex-row'>
-          <div className='flex w-fit flex-col gap-6'>
+          <div className='flex w-full sm:w-fit flex-col justify-center sm:justify-start sm:items-start items-center gap-6'>
             <div className='flex flex-col'>
-              <h1 className='text-[50px] font-primary uppercase -mt-6 '>
+              <h1 className='sm:text-[50px]  text-[35px] font-primary uppercase -mt-6 '>
                 {currentPlayer[1]}
               </h1>
-              <div className='text-[10px] font-primary -mt-2 text-[#9D9D9D] uppercase'>
+              <div className='text-[10px] text-center sm:text-start font-primary -mt-2 text-[#9D9D9D] uppercase'>
                 {currentPlayer[0]}
               </div>
             </div>
@@ -138,8 +137,8 @@ export default function Player({ playerId, pubgApiToken, players }) {
                 </div>
               </div>
             </div>
-            <div className='w-fit group'>
-              <Link  href={'/'}>Home</Link>
+            <div className='sm:w-fit w-full group'>
+              <Link  className='text-start' href={'/'}>Home</Link>
               <div className='w-0 bg-black h-px transition-all group-hover:w-full'></div>
             </div>
           </div>

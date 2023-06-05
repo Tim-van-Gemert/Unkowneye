@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <div className='flex flex-col p-10 gap-2 '>
+      <div className='flex flex-col sm:p-10 p-4 gap-2 h-screen min-h-screen  '>
       {/* <Header/> */}
       <Component players={players} initialLoad={initialLoad} setInitialLoad={setInitialLoad} {...pageProps} />
     </div>
