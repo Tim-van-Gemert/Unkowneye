@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         primary: "Sen",
+        sec: "Have",
       },
     },
   },

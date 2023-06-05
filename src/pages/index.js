@@ -69,7 +69,7 @@ export default function Home(props) {
                 <motion.div
                   key={playerName}
                   variants={linkVariants}
-                  className="w-full hover:-translate-y-2 items-end transition-all rounded-xl bg-[#9D9D9D20] flex flex-col h-fit relative"
+                  className="w-full hover:-translate-y-2 items-end transition-all rounded-xl bg-[#f0f0f0] flex flex-col h-fit relative"
                 >
                   <Link href={{ pathname: "/stats", query }} className="w-full  items-end flex flex-col " onClick={() => {
                     props.setInitialLoad(false)

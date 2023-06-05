@@ -9,6 +9,10 @@
   src: url(../../fonts/FamiljenGrotesk-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: Have;
+  src: url(../../fonts/HaverbrookeHollow-rgZ7K.ttf);
+}
 
 body {
   background-color: white;

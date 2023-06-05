@@ -86,7 +86,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
             <div className='flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full  gap-12 lg:gap-6'>
               <img
                 src='/playerFull.png'
-                className='sm:min-h-full hidden sm:block rounded-xl bg-[#9D9D9D10] sm:h-full object-cover'
+                className='sm:min-h-full hidden sm:block rounded-xl bg-[#f0f0f0] sm:h-full object-cover'
               ></img>
               <div className='flex flex-col gap-2'>
                 <h1 className='text-[24px] font-primary'>BATTLE METRICS</h1>
@@ -95,7 +95,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
                     return (
                       <div
                         key={e[0]}
-                        className='font-primary flex  rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '
+                        className='font-primary flex  rounded-xl w-full flex-row gap-2 bg-[#f0f0f0] p-3 uppercase '
                       >
                         <div className='font-bold '>{e[0]}</div> :{' '}
                         <div>{e[1]}</div>
@@ -111,7 +111,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
                     return (
                       <div
                         key={e[0]}
-                        className='font-primary flex rounded-xl w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '
+                        className='font-primary flex rounded-xl w-full flex-row gap-2 bg-[#f0f0f0] p-3 uppercase '
                       >
                         <div className='font-bold '>{e[0]}</div> :{' '}
                         <div>{e[1]}</div>
@@ -127,7 +127,7 @@ export default function Player({ playerId, pubgApiToken, players }) {
                     return (
                       <div
                         key={e[0]}
-                        className='font-primary flex rounded-xl  w-full flex-row gap-2 bg-[#9D9D9D10] p-3 uppercase '
+                        className='font-primary flex rounded-xl  w-full flex-row gap-2 bg-[#f0f0f0] p-3 uppercase '
                       >
                         <div className='font-bold '>{e[0]}</div> :{' '}
                         <div>{e[1]}</div>
